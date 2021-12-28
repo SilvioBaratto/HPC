@@ -32,9 +32,9 @@ def insertHeadersToCSV(headers, result_full_path):
 
 
 if __name__ == '__main__':
-
+    cartella = "thin"
     for module in ["openmpi", "intel"]:
-        directory = "thin_node/mean/" + module
+        directory = cartella + "/csv/mean/" + module
 
         for filename in os.listdir(directory):
             full_path = os.path.join(directory, filename)
@@ -70,7 +70,7 @@ if __name__ == '__main__':
             plt.legend(loc="upper left")
 
             plot_filename = os.path.splitext(filename)[0]+'.jpg'
-            plot_full_path = os.path.join("plots/" + module, plot_filename)
+            plot_full_path = os.path.join(cartella + "/plots/" + module, plot_filename)
             plt.savefig(plot_full_path)
             plt.clf()
 
@@ -80,7 +80,7 @@ if __name__ == '__main__':
                            for number in (x_data / y_estimated)]
             df['Mbytes/sec (computed)'] = Mbytes_comp
 
-            result_full_path = os.path.join("results/" + module, filename)
+            result_full_path = os.path.join(cartella + "/results/" + module, filename)
             df.to_csv(result_full_path, sep=",", index=False)
             
             headers[1] = '#lambda[usec] (computed) -> ' + \

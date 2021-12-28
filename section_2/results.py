@@ -23,9 +23,9 @@ def insertHeadersToCSV(headers, result_full_path):
 
 
 if __name__ == '__main__':
-
+    cartella = "thin"
     for module in ["openmpi", "intel"]:
-        directory = "results/" + module
+        directory = cartella + "/results/" + module
 
         for filename in os.listdir(directory):
             full_path = os.path.join(directory, filename)
@@ -42,10 +42,14 @@ if __name__ == '__main__':
 
                 res = tabulate(rows, titles, numalign="right")
                 tabular_full_path = os.path.join(
-                    "results/tabular/" + module, filename[:-2]+"txt")
+                    cartella + "/results/tabular/" + module, filename[:-2]+"txt")
 
                 with open(tabular_full_path, "w+") as file:
                     file.writelines(headers)
                     file.writelines(res)
 
                 insertHeadersToCSV(headers, full_path)
+                
+                
+                
+                

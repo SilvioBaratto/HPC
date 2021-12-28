@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import math
 
-# take mean of csv and make 1 result in same folder to be processed by fit_and_plot.py
 
 
 def removeHeadersFromCSV(full_path):
@@ -27,8 +26,10 @@ def insertHeadersToCSV(headers, result_full_path):
 
 if __name__ == '__main__':
 
+    cartella = "thin"
+	
     for module in ["openmpi", "intel"]:
-        top_directory = "thin_node/" + module
+        top_directory = cartella + "/csv/" + module
 
         for current_directory in os.listdir(top_directory):
 
@@ -69,7 +70,7 @@ if __name__ == '__main__':
                                   - mean_dataFrame['t[usec]'][0])**2)
             std_dev = round(math.sqrt(dev / (counter - 1)), 2)
 
-            mean_result_path = os.path.join("thin_node/mean/" + module, filename)
+            mean_result_path = os.path.join(cartella + "/csv/mean/" + module, filename)
             mean_result_path = mean_result_path[:-6] + mean_result_path[-4:]
 
             mean_dataFrame.to_csv(mean_result_path, sep=",", index=False)
@@ -77,3 +78,8 @@ if __name__ == '__main__':
             insertHeadersToCSV(headers, mean_result_path)
             print("\nmean result saved in: " + mean_result_path,
                   "\nstandard deviation of lambda: ", std_dev)
+                  
+                  
+                  
+                  
+                  

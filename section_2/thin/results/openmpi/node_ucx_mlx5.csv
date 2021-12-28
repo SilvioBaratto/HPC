@@ -1,3 +1,11 @@
+#mpirun -np 2 --map-by node --mca pml ucx --mca btl ^uct -x UCX_NET_DEVICES=mlx5_0:1 ./IMB-MPI1 PingPong -msglog 28
+#lambda[usec] (computed) -> 3.71, bandwidth[Mbytes/sec] (computed) -> 12179.31
+#bytes,#repetitions,t[usec],Mbytes/sec,t[usec] (computed),Mbytes/sec (computed)
+0,1000,0.99,0.0,3.71,0.0
+1,1000,0.98,1.02,3.71,0.27
+2,1000,0.99,2.02,3.71,0.54
+4,1000,0.99,4.04,3.71,1.08
+8,1000,0.98,8.13,3.72,2.15
 16,1000,0.99,16.17,3.72,4.31
 32,1000,1.01,31.82,3.72,8.61
 64,1000,1.15,55.48,3.72,17.21
