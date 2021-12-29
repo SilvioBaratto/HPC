@@ -43,17 +43,17 @@ int main(int argc, char *argv[])
 		if (argc == 7)
 		{
 			printf("slowest time: %f - #processors: %d\n", slowest_time, numprocs);
-			fprintf(fptr, "%sx%sx%s,%sx%sx%s,%10.8f,%d\n", argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], slowest_time, numprocs);
+			fprintf(fptr, "%sx%sx%s, %sx%sx%s, %10.8f, %d\n", argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], slowest_time, numprocs);
 		}
 		else if (argc == 4)
 		{
 			printf("slowest time: %f - #processors: %d\n", slowest_time, numprocs);
-			fprintf(fptr, "%sx%sx%s,24,%10.8f,%d\n", argv[1], argv[2], argv[3], slowest_time, numprocs);
+			fprintf(fptr, "%sx%sx%s, 24, %10.8f, %d\n", argv[1], argv[2], argv[3], slowest_time, numprocs);
 		}
 		else if (argc == 6)
 		{
 			printf("slowest time: %f - #processors: %d\n", slowest_time, numprocs);
-			fprintf(fptr, "%sx%sx%s,%sx%s,%10.8f,%d\n", argv[1], argv[2], argv[3], argv[4], argv[5], slowest_time, numprocs);
+			fprintf(fptr, "%sx%sx%s, %sx%s, %10.8f, %d\n", argv[1], argv[2], argv[3], argv[4], argv[5], slowest_time, numprocs);
 		}
 	}
 
