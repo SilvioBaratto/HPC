@@ -78,6 +78,7 @@
 \maketitle
 \tableofcontents
 \chapter{section 1}
+All the files used for this report are in: \href{https://github.com/SilvioBaratto/HPC}{https://github.com/SilvioBaratto/HPC}
 \section{Ring}
 %\href{https://github.com/SilvioBaratto}{github}/SilvioBaratto}.\\
 This program builds a 1D ring and makes each process sends a message to his right and left neighbour with a tag proportional to its rank. In this way each process add or substracts its rank value depending on which side the message is received. Then each process will resend the messages along the ring until the original message has come back to the original sender. \\

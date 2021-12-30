@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  30 DEC 2021 22:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.2)  30 DEC 2021 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1358,65 +1358,65 @@ l.80 \chapter
 
 ]
 Capitolo 1.
-<ring.png, id=82, 963.6pt x 542.025pt>
+<ring.png, id=83, 963.6pt x 542.025pt>
 File: ring.png Graphic file (type png)
 <use ring.png>
-Package pdftex.def Info: ring.png  used on input line 86.
+Package pdftex.def Info: ring.png  used on input line 87.
 (pdftex.def)             Requested size: 433.616pt x 243.90898pt.
 
-Overfull \hbox (6.82465pt too wide) in paragraph at lines 86--87
+Overfull \hbox (6.82465pt too wide) in paragraph at lines 87--88
  [] 
  []
 
 [2
 
  <./ring.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 91--93
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
 [3]
 Capitolo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--129
+Underfull \hbox (badness 10000) in paragraph at lines 125--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--129
+Underfull \hbox (badness 10000) in paragraph at lines 125--130
 
  []
 
-<thin_intel_openmpi.png, id=92, 1813.52531pt x 813.0375pt>
+<thin_intel_openmpi.png, id=93, 1813.52531pt x 813.0375pt>
 File: thin_intel_openmpi.png Graphic file (type png)
 <use thin_intel_openmpi.png>
-Package pdftex.def Info: thin_intel_openmpi.png  used on input line 130.
+Package pdftex.def Info: thin_intel_openmpi.png  used on input line 131.
 (pdftex.def)             Requested size: 453.38022pt x 203.25888pt.
 
-Overfull \hbox (26.58887pt too wide) in paragraph at lines 130--131
+Overfull \hbox (26.58887pt too wide) in paragraph at lines 131--132
  [] 
  []
 
 [4
 
 ]
-<gpu_intel_openmpi.png, id=100, 1813.52531pt x 813.0375pt>
+<gpu_intel_openmpi.png, id=101, 1813.52531pt x 813.0375pt>
 File: gpu_intel_openmpi.png Graphic file (type png)
 <use gpu_intel_openmpi.png>
-Package pdftex.def Info: gpu_intel_openmpi.png  used on input line 134.
+Package pdftex.def Info: gpu_intel_openmpi.png  used on input line 135.
 (pdftex.def)             Requested size: 453.38022pt x 203.25888pt.
 
-Overfull \hbox (26.58887pt too wide) in paragraph at lines 134--135
+Overfull \hbox (26.58887pt too wide) in paragraph at lines 135--136
  [] 
  []
 
-<node_mapping.png, id=101, 1813.52531pt x 813.0375pt>
+<node_mapping.png, id=102, 1813.52531pt x 813.0375pt>
 File: node_mapping.png Graphic file (type png)
 <use node_mapping.png>
-Package pdftex.def Info: node_mapping.png  used on input line 140.
+Package pdftex.def Info: node_mapping.png  used on input line 141.
 (pdftex.def)             Requested size: 453.38022pt x 203.25888pt.
 
-Overfull \hbox (26.58887pt too wide) in paragraph at lines 140--141
+Overfull \hbox (26.58887pt too wide) in paragraph at lines 141--142
  [] 
  []
 
@@ -1424,43 +1424,43 @@ Overfull \hbox (26.58887pt too wide) in paragraph at lines 140--141
 [6 <./node_mapping.png (PNG copy)>]
 Capitolo 3.
 
-Overfull \hbox (7.10796pt too wide) in paragraph at lines 204--214
+Overfull \hbox (7.10796pt too wide) in paragraph at lines 205--215
  [] 
  []
 
 [7
 
 ]
-Overfull \hbox (7.10796pt too wide) in paragraph at lines 218--228
+Overfull \hbox (7.10796pt too wide) in paragraph at lines 219--229
  [] 
  []
 
 
-Overfull \hbox (7.10796pt too wide) in paragraph at lines 232--242
+Overfull \hbox (7.10796pt too wide) in paragraph at lines 233--243
  [] 
  []
 
 
-Overfull \hbox (7.10796pt too wide) in paragraph at lines 246--256
+Overfull \hbox (7.10796pt too wide) in paragraph at lines 247--257
  [] 
  []
 
 
-Overfull \hbox (7.10796pt too wide) in paragraph at lines 260--270
+Overfull \hbox (7.10796pt too wide) in paragraph at lines 261--271
  [] 
  []
 
 [8]
-Overfull \hbox (7.10796pt too wide) in paragraph at lines 274--284
+Overfull \hbox (7.10796pt too wide) in paragraph at lines 275--285
  [] 
  []
 
 [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 286.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 286.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 286.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 287.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 9F276F28AAF6274B8C908F4414A5F67C;718.
  ) 
@@ -1482,10 +1482,10 @@ s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb>
-Output written on report.pdf (10 pages, 909653 bytes).
+Output written on report.pdf (10 pages, 909870 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
+ 176 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  32 named destinations out of 1000 (max. 500000)
  19073 words of extra memory for PDF output out of 20736 (max. 10000000)
 
