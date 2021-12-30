@@ -23,7 +23,7 @@ def insertHeadersToCSV(headers, result_full_path):
 
 
 if __name__ == '__main__':
-    cartella = "gpu_node"
+    cartella = "thin_node"
     for module in ["openmpi", "intel"]:
         directory = cartella + "/results/" + module
 
