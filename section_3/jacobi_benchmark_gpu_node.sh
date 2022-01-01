@@ -10,10 +10,4 @@ for i in 12 24 48
 		mpirun --mca btl ^openib -np $i --map-by node $CWD/jacoby3D.x <$CWD/input.1200 >$CWD/"gpu_node_${i}".txt
 	done
 
-#for i in 4 8 12
-#	do 
-#		mpirun --mca btl ^openib -np $i --map-by core $CWD/jacoby3D.x <$CWD/input.1200 > $CWD/gpu_core_${i}.txt
-#		mpirun --mca btl ^openib -np $i --map-by socket $CWD/jacoby3D.x <$CWD/input.1200 > $CWD/gpu_socket_${i}.txt
-#	done
-
 rm *.dat

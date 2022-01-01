@@ -4,8 +4,8 @@
 
 #define SEED 35791250
 
-void RandomMatrix(int x_size, int y_size, int z_size, double *matrix);
-void sum3Dmatrix(int argc, char *argv[], int nproc);
+void fillRandomToMatrix(int x_size, int y_size, int z_size, double *matrix);
+void executeMatrixAddition(int argc, char *argv[], int numprocs);
 
 int main(int argc, char *argv[])
 {
@@ -13,14 +13,14 @@ int main(int argc, char *argv[])
 	//fptr = fopen("./table.csv", "a");
 	fptr = fopen("./matrix_times.csv", "a");
 
-	int nproc;
+	int numprocs;
 	MPI_Init(&argc, &argv);
-	MPI_Comm_size(MPI_COMM_WORLD, &nproc);
+	MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
 
-	int rank;
-	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	int my_rank;
+	MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
-	if (rank == 0)
+	if (my_rank == 0)
 	{
 		if ((argc > 7) || (argc < 4) || (argc == 5))
 		{
@@ -33,27 +33,27 @@ int main(int argc, char *argv[])
 	double start_time, elapsed_time;
 
 	start_time = MPI_Wtime();
-	sum3Dmatrix(argc, argv, nproc);
+	executeMatrixAddition(argc, argv, numprocs);
 	elapsed_time = MPI_Wtime() - start_time;
 
 	MPI_Reduce(&elapsed_time, &slowest_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
 
-	if (rank == 0)
+	if (my_rank == 0)
 	{
 		if (argc == 7)
 		{
-			printf("slowest time: %f - #processors: %d\n", slowest_time, nproc);
-			fprintf(fptr, "%sx%sx%s, %sx%sx%s, %10.8f, %d\n", argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], slowest_time, nproc);
+			printf("slowest time: %f - #processors: %d\n", slowest_time, numprocs);
+			fprintf(fptr, "%sx%sx%s, %sx%sx%s, %10.8f, %d\n", argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], slowest_time, numprocs);
 		}
 		else if (argc == 4)
 		{
-			printf("slowest time: %f - #processors: %d\n", slowest_time, nproc);
-			fprintf(fptr, "%sx%sx%s, 24, %10.8f, %d\n", argv[1], argv[2], argv[3], slowest_time, nproc);
+			printf("slowest time: %f - #processors: %d\n", slowest_time, numprocs);
+			fprintf(fptr, "%sx%sx%s, 24, %10.8f, %d\n", argv[1], argv[2], argv[3], slowest_time, numprocs);
 		}
 		else if (argc == 6)
 		{
-			printf("slowest time: %f - #processors: %d\n", slowest_time, nproc);
-			fprintf(fptr, "%sx%sx%s, %sx%s, %10.8f, %d\n", argv[1], argv[2], argv[3], argv[4], argv[5], slowest_time, nproc);
+			printf("slowest time: %f - #processors: %d\n", slowest_time, numprocs);
+			fprintf(fptr, "%sx%sx%s, %sx%s, %10.8f, %d\n", argv[1], argv[2], argv[3], argv[4], argv[5], slowest_time, numprocs);
 		}
 	}
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-void sum3Dmatrix(int argc, char *argv[], int nproc)
+void executeMatrixAddition(int argc, char *argv[], int numprocs)
 {
 
 	int matrix_size, matrix_chunk_size;
@@ -120,7 +120,7 @@ void sum3Dmatrix(int argc, char *argv[], int nproc)
 	}
 
 	matrix_size = x_size * y_size * z_size;
-	matrix_chunk_size = matrix_size / nproc;
+	matrix_chunk_size = matrix_size / numprocs;
 
 	double *matrixA = malloc(matrix_size * sizeof(double));
 	double *matrixB = malloc(matrix_size * sizeof(double));
@@ -131,7 +131,7 @@ void sum3Dmatrix(int argc, char *argv[], int nproc)
 	double *chunk_matrixC = malloc(matrix_chunk_size * sizeof(double));
 
 	MPI_Comm matrix_communicator;
-	MPI_Dims_create(nproc, ndims, dims);
+	MPI_Dims_create(numprocs, ndims, dims);
 	MPI_Cart_create(MPI_COMM_WORLD, ndims, dims, periods, reorder, &matrix_communicator);
 
 	int my_rank;
@@ -140,8 +140,8 @@ void sum3Dmatrix(int argc, char *argv[], int nproc)
 	if (my_rank == 0)
 	{
 		srand48(SEED);
-		RandomMatrix(x_size, y_size, z_size, matrixA);
-		RandomMatrix(x_size, y_size, z_size, matrixB);
+		fillRandomToMatrix(x_size, y_size, z_size, matrixA);
+		fillRandomToMatrix(x_size, y_size, z_size, matrixB);
 	}
 	MPI_Scatter(matrixA, matrix_chunk_size, MPI_DOUBLE, chunk_matrixA, matrix_chunk_size, MPI_DOUBLE, 0, matrix_communicator);
 	MPI_Scatter(matrixB, matrix_chunk_size, MPI_DOUBLE, chunk_matrixB, matrix_chunk_size, MPI_DOUBLE, 0, matrix_communicator);
@@ -162,7 +162,7 @@ void sum3Dmatrix(int argc, char *argv[], int nproc)
 	free(chunk_matrixC);
 }
 
-void RandomMatrix(int x_size, int y_size, int z_size, double *matrix)
+void fillRandomToMatrix(int x_size, int y_size, int z_size, double *matrix)
 {
 	int i, j, k;
 

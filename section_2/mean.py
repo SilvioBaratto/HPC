@@ -2,8 +2,6 @@ import os
 import pandas as pd
 import math
 
-
-
 def removeHeadersFromCSV(full_path):
     with open(full_path, "r") as f:
         lines = f.readlines()

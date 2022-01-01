@@ -12,5 +12,3 @@ sum3Dmatrix:
 .PHONY: clean
 clean:
 	rm -f $(BUILD_DIR)/*
-
-
