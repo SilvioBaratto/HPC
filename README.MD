@@ -6,13 +6,13 @@ module load openmpi-4.1.1+gnu-9.3.0
 make
 ```
 
-# Ring
+## Ring
 
 To execute the ring with `N` processors do:
 ```bash
 mpirun -np 4 --mca btl ^openib ./ring.x
 ```
-# sum3Dmatrix
+## Sum3DMatrix
 
 To run with `N` processors do:
 ```bash
