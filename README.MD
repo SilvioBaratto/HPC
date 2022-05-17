@@ -23,3 +23,11 @@ To run with `N` processors do:
 mpirun -np N --mca btl ^openib sum3Dmatrix.x Nx Ny Nz x y z
 ```
 where `Nx` `Ny` `Nz` are the sizes of the matrixes and `x` `y` `z` are the grid of the virtual topology. 
+
+# Section 2
+
+This section contains the estimation of latency and bandwidth of all available combinations of topologies and networks on ORFEO computational nodes. To performe this benchmark both IntelMPI and openmpi in there lates version where used on ORFEO
+
+# Section 3
+
+Jacobi applications discussed in class
