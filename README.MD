@@ -1,7 +1,8 @@
 # Section 1
 
 This section contains two programs:
-* item prova
+* Ring: implementation in C using MPI and P processors on a ring. (simple 1D topology where each processor has a left and right neighbour). The program implement a stream messages in both directions.
+* Sum3DMatrix: implementation of a simple 3D matrix-matrix addition in parallel using 1D, 2D and 3D distribution of data using virtual topology. The program accept as input the sizes of the matrixes.
 
 To compile all files on orfeo do:
 ```bash
