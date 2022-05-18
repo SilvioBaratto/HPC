@@ -1,14 +1,30 @@
-CC := mpicc
+SRC = ring.c \
+	sum3Dmatrix.c \
 
-BUILD_DIR = ./build
-all: ring sum3Dmatrix
+CXX = mpicc
+CXXFLAGS = -O3 -march=native
 
-ring:
-	$(CC) ring.c -o $(BUILD_DIR)/ring.x
-	
-sum3Dmatrix:
-	$(CC) sum3Dmatrix.c -o $(BUILD_DIR)/sum3Dmatrix.x
+EXE = $(SRC:.c=.x)
+
+.SUFFIXES:
+SUFFIXES = 
+
+.SUFFIXES: .c .x 
+
+all: $(EXE)
+
+.PHONY: all
+
+%.x: %.c
+	$(CXX) $< -o build/$@ $(CXXFLAGS)
+
+format: $(SRC)
+
+.PHONY: format
+
+clean:
+	rm -rf $(EXE) *~
 
 .PHONY: clean
-clean:
-	rm -f $(BUILD_DIR)/*
+
+
