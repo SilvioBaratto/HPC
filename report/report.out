@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Ring}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Analysis}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Matrix}{}% 3
+\BOOKMARK [1][-]{section.3}{MPI PingPong performance}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Differences observed between IntelMPI and OpenMPI}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.2}{Differences observed between Infiniband and Gigabit}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.3}{Thin node latency and bandwidth}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.4}{Gpu node latency and bandwidth}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.5}{Other observations}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Jacobi solver}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Performance}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 12
