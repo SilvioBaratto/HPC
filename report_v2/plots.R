@@ -27,12 +27,12 @@ sp1 = ggplot(time_core,aes(x=nprocs,y=time,color="Map by core"))  +
                                                    color = "red",linetype="dashed", size=0.5) +
   theme(legend.position = c(0.2, 0.8))+ geom_vline(xintercept=24, 
                                                  color = "red",linetype="dashed", size=0.5)
-ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report/ring.png"), width = 8, height = 6, dpi = 200)
+ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report_v2/ring.png"), width = 8, height = 6, dpi = 200)
 
 node_ib_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ib.csv", header = TRUE, skip = 2)
 node_ob1_tcp_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ob1_tcp.csv", header = TRUE, skip = 2)
-#node_ucx_br0_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ib.csv", header = TRUE, skip = 2)
-#node_ucx_ib0_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ib.csv", header = TRUE, skip = 2)
+node_ucx_br0_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ucx_br0.csv", header = TRUE)
+node_ucx_ib0_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ucx_ib0.csv", header = TRUE)
 node_ucx__mlx5_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/node_ucx_mlx5_0.csv", header = TRUE, skip = 2)
 
 socket_ib_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/thin_node/results/openmpi/socket_ib.csv", header = TRUE, skip = 2)
@@ -86,7 +86,7 @@ thin_bandwidth = ggplot(core_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX IB
   annotate("text", x=58000, y=24000, label= "L1",color="Black")+
   annotate("text", x=1800000, y=24000, label= "L2",color="Black")+
   annotate("text", x=29900000, y=24000, label= "L3",color="Black")
-ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report/ThinPingPongBandwidth.png"), width = 8, height = 6, dpi = 200)
+ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report_v2/ThinPingPongBandwidth.png"), width = 8, height = 6, dpi = 200)
 
 gpu_node_ib_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/gpu_node/results/openmpi/node_ib.csv", header = TRUE, skip = 2)
 gpu_node_ob1_tcp_openmpi <- read.csv("~/OneDrive/github/High-Performance-Computing-benchmarks/section_2/gpu_node/results/openmpi/node_ob1_tcp.csv", header = TRUE, skip = 2)
@@ -143,7 +143,7 @@ gpu_bandwidth = ggplot(gpu_core_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX
   annotate("text", x=58000, y=24000, label= "L1",color="Black")+
   annotate("text", x=1800000, y=24000, label= "L2",color="Black")+
   annotate("text", x=29900000, y=24000, label= "L3",color="Black")
-ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report/GpuPingPongBandwidth.png"), width = 8, height = 6, dpi = 200)
+ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report_v2/GpuPingPongBandwidth.png"), width = 8, height = 6, dpi = 200)
 
 
 
@@ -162,7 +162,7 @@ thin_mapping = ggplot(node_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX IB")
         axis.title.x = element_text(margin = margin(t = 10, b=10)), 
         axis.title.y = element_text(margin = margin(r = 10,l=10)), 
         axis.text = element_text(color= "#2f3030", face="bold"))
-ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report/ThinNodeMapping.png"), width = 8, height = 6, dpi = 200)
+ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report_v2/ThinNodeMapping.png"), width = 8, height = 6, dpi = 200)
 
 gpu_mapping = ggplot(gpu_node_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX IB")) +
   scale_x_continuous(trans='log2',name="Message Size Bytes",breaks=gpu_core_ib_openmpi$X.bytes)+
@@ -179,4 +179,4 @@ gpu_mapping = ggplot(gpu_node_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX I
         axis.title.x = element_text(margin = margin(t = 10, b=10)), 
         axis.title.y = element_text(margin = margin(r = 10,l=10)), 
         axis.text = element_text(color= "#2f3030", face="bold"))
-ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report/GPuNodeMapping.png"), width = 8, height = 6, dpi = 200)
+ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report_v2/GPuNodeMapping.png"), width = 8, height = 6, dpi = 200)

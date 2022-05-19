@@ -103,6 +103,13 @@ Mapping the processes in the same socket show often a better performance, as exp
     \includegraphics[width=\textwidth]{GpuPingPongBandwidth.png}
     \label{fig:GpuPingPongBandwidth}
 \end{figure}
+\indent From \ref{fig:ThinNodeMapping} is possible to see that with IntelMPI, UCX OpenMPI InfiniBand and UCX IB, the asymptotic bandwidth is greater than the other protocols/devices and similar to the one expected from theoretical peak.  
+\begin{figure}[b!]
+    \centering
+    \includegraphics[width=\textwidth]{ThinNodeMapping.png}
+    \caption{}
+    \label{fig:ThinNodeMapping}
+\end{figure}
 \subsection{Differences observed between IntelMPI and OpenMPI}
 It is clear that the main difference is that IntelMPI looks much more stable than OpenMPI, especially in the left region. Since the region interested by this phenomenon is the one in which the latency is dominant with respect to the bandwidth, we may assume that the two implementations communicate using different protocols with the network interface, thus encountering different costs in establishing the communication and sending the message. 
 %\begin{figure}[H]
@@ -138,9 +145,10 @@ UCX with InfiniBand and Intel shows the best performance among all the configura
     \midrule
     \multirow{4}*{Node mapping}	
 									& UCX ib	& $1.07$ 	& $12176.39$ \\
-									& Intel ib 		& $1.34$ 	& $12235.85$ \\
-									& OB1 vader 	& $1.06$ 	& $12187.99$ \\
-									& OB1 tcp 		& $15.76$	& $2402.39$ \\ 
+									& Intel ib 	& $1.34$ 	& $12235.85$ \\
+									& UCX ib0 	& $9.06$ 	& $2764.778$ \\
+									& UCX br0 	& $15.85$ 	& $2433.241$ \\
+									& OB1 tcp 	& $15.76$	& $2402.39$ \\ 
 	\bottomrule
 	\end{tabular}
 \label{tab:ThinNodeLatency}
@@ -167,7 +175,8 @@ UCX with InfiniBand and Intel shows the best performance among all the configura
     \multirow{4}*{Node mapping}	
 									& UCX ib		& $1.58$ 	& $12185.46$ \\
 									& Intel ib 		& $1.48$ 	& $12200.16$ \\
-									& OB1 vader 	& $1.53$ 	& $12178.97$ \\
+									& UCX ib0		& $12.94$ 	& $2432.17$ \\
+									& UCX br0		& $17.82$	& $1921.84$ \\
 									& OB1 tcp 		& $15.62$	& $2038.15$ \\ 
 	\bottomrule
 	\end{tabular}
