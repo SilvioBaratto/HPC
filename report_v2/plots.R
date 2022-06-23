@@ -151,8 +151,12 @@ thin_mapping = ggplot(node_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX IB")
   scale_x_continuous(trans='log2',name="Message Size Bytes",breaks=core_ib_openmpi$X.bytes)+
   scale_y_continuous(breaks = seq(0,13000,500),name="MB/s")  + geom_point() + geom_line()  +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + 
-  geom_point(data=node_ob1_tcp_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="OB1 tcp")) +
+  geom_point(data=node_ob1_tcp_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="OB1 tcp")) + 
   geom_line(data=node_ob1_tcp_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="OB1 tcp")) + 
+  geom_point(data=node_ucx_br0_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX br0")) + 
+  geom_line(data=node_ucx_br0_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX br0")) + 
+  geom_point(data=node_ucx_ib0_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX ib0")) + 
+  geom_line(data=node_ucx_ib0_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX ib0")) + 
   geom_point(data=node_ib_intel,aes(x=X.bytes,y=Mbytes.sec,color="Intel IB")) + 
   geom_line(data=node_ib_intel,aes(x=X.bytes,y=Mbytes.sec,color="Intel IB")) +
   labs(title="PingPong bandwidth", subtitle="Thin node,node mapping")  +
@@ -161,7 +165,13 @@ thin_mapping = ggplot(node_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX IB")
         axis.title = element_text(face = "bold"), legend.text = element_text(margin = margin(t = 7, b = 7, r=12)), 
         axis.title.x = element_text(margin = margin(t = 10, b=10)), 
         axis.title.y = element_text(margin = margin(r = 10,l=10)), 
-        axis.text = element_text(color= "#2f3030", face="bold"))
+        axis.text = element_text(color= "#2f3030", face="bold")) +
+    geom_hline(yintercept=3125, 
+               color = "blue",linetype="dotted", size=0.4) +
+    geom_hline(yintercept=12500, 
+               color = "blue",linetype="dotted", size=0.4) +
+    annotate("text", x=8, y=2260, label= "25 Gbit",color="black") +
+    annotate("text", x=8, y=11800, label= "100 Gbit",color="black")
 ggsave(paste0("~/OneDrive/github/High-Performance-Computing-benchmarks/report_v2/ThinNodeMapping.png"), width = 8, height = 6, dpi = 200)
 
 gpu_mapping = ggplot(gpu_node_ib_openmpi,aes(x=X.bytes,y=Mbytes.sec,color="UCX IB")) +
